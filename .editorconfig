@@ -1,0 +1,17 @@
+﻿root = true
+
+[*]
+insert_final_newline = false
+charset = utf-8-bom
+indent_style = space
+indent_size = 4
+trim_trailing_whitespace = false
+
+## Custom Properties
+## The following properties are not yet officially supported by EditorConfig.
+## See https://github.com/editorconfig/editorconfig/wiki/EditorConfig-Properties
+## to check if this has changed.
+curly_bracket_next_line = true
+
+[.git/**]
+charset = utf-8
