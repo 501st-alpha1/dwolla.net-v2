@@ -26,19 +26,19 @@ namespace dwolla.net.test
           }
         }
       };
-      var job = m.Create("Balance", items, altToken: "raopmI6N9UIq87uWqhXB5v7xIgi49EH3K3qSFwtoZ/CzcBCN+l", altPin: 1337);
+      var job = m.Create("Balance", items);
       Assert.IsInstanceOfType(job, typeof(MassPayJob));
 
-      var retjob = m.GetJob(job.Id, "raopmI6N9UIq87uWqhXB5v7xIgi49EH3K3qSFwtoZ/CzcBCN+l");
+      var retjob = m.GetJob(job.Id);
       Assert.IsInstanceOfType(retjob, typeof(MassPayJob));
 
-      var jobItems = m.GetJobItems(job.Id, altToken: "raopmI6N9UIq87uWqhXB5v7xIgi49EH3K3qSFwtoZ/CzcBCN+l");
+      var jobItems = m.GetJobItems(job.Id);
       Assert.IsInstanceOfType(jobItems, typeof(List<MassPayRetrievedItem>));
 
-      var item = m.GetItem(job.Id, jobItems[0].ItemId, altToken: "raopmI6N9UIq87uWqhXB5v7xIgi49EH3K3qSFwtoZ/CzcBCN+l");
+      var item = m.GetItem(job.Id, jobItems[0].ItemId);
       Assert.IsInstanceOfType(item, typeof(MassPayRetrievedItem));
 
-      var jobList = m.ListJobs("raopmI6N9UIq87uWqhXB5v7xIgi49EH3K3qSFwtoZ/CzcBCN+l");
+      var jobList = m.ListJobs();
       Assert.IsInstanceOfType(jobList, typeof(List<MassPayJob>));
     }
   }

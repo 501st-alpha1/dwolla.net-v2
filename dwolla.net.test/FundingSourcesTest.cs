@@ -27,7 +27,7 @@ namespace dwolla.net.test
     {
       var r = new Random();
 
-      var newSource = f.Add(r.Next(99999999).ToString(), "021000021", "Checking", "My Bank", "raopmI6N9UIq87uWqhXB5v7xIgi49EH3K3qSFwtoZ/CzcBCN+l");
+      var newSource = f.Add(r.Next(99999999).ToString(), "021000021", "Checking", "My Bank");
       Assert.IsInstanceOfType(newSource, typeof(FundingSource));
 
       /*
@@ -35,10 +35,10 @@ namespace dwolla.net.test
        * Assert.IsInstanceOfType(verify, typeof(bool));
        */
 
-      var info = f.Info(newSource.Id, "raopmI6N9UIq87uWqhXB5v7xIgi49EH3K3qSFwtoZ/CzcBCN+l");
+      var info = f.Info(newSource.Id);
       Assert.IsInstanceOfType(info, typeof(FundingSource));
 
-      var list = f.Get(altToken: "raopmI6N9UIq87uWqhXB5v7xIgi49EH3K3qSFwtoZ/CzcBCN+l");
+      var list = f.Get();
       Assert.IsInstanceOfType(list, typeof(List<FundingSource>));
     }
   }
