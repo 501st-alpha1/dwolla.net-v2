@@ -462,31 +462,6 @@ Each endpoint class extends `Rest` located in `Rest.cs`.
 
 Travis-Ci build verification is planned when the tests are going to be migrated to a framework such as X-Test which does not require Microsoft Windows or Visual Studio. As of now, the maintainer runs MSTest to validate each build before pushing.
 
-## Changelog
-
-1.0.6
-* Fixed null response when `OAuth.refresh()` is invoked. 
-* OAuthResponse serializable type updated with new fields.
-
-1.0.5
-* Added `verified_account` parameter to OAuth authorization URL function.
-
-1.0.4 
-* Added OAuth catalog endpoint + new serializable type.
-* Added scheduled transaction endpoint + serializable types for recurrence and scheduled responses.
-
-1.0.3
-* Added example application which uses Razor and MVC.
-
-1.0.2
-* Changed to less ambiguous configuration keys (e.g `client_id` to `dwolla_key`).
-
-1.0.1
-* Removed useless dependencies, pushed working copy to NuGet. 
-
-1.0.0
-* Initial release.
-
 ## Credits
 
 This wrapper is based on [HttpClient](https://msdn.microsoft.com/en-us/library/system.net.http.httpclient%28v=vs.118%29.aspx) for REST capability and [MSTest](https://msdn.microsoft.com/en-us/library/ms182489.aspx) for unit testing.
