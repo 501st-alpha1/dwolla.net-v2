@@ -96,7 +96,7 @@ namespace Dwolla
                 new Dictionary<string, string>
                 {
                     {"oauth_token", altToken ?? C.dwolla_access_token},
-                    {"pin", altPin.ToString() ?? C.dwolla_pin.ToString()},
+                    {"pin", (altPin != null) ? altPin.ToString() : C.dwolla_pin.ToString()},
                     {"amount", amount.ToString()},
                 }));
         }
@@ -117,7 +117,7 @@ namespace Dwolla
                 new Dictionary<string, string>
                 {
                     {"oauth_token", altToken ?? C.dwolla_access_token},
-                    {"pin", altPin.ToString() ?? C.dwolla_pin.ToString()},
+                    {"pin", (altPin != null) ? altPin.ToString() : C.dwolla_pin.ToString()},
                     {"amount", amount.ToString()},
                 }));
         }

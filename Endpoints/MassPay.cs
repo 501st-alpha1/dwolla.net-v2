@@ -22,7 +22,7 @@ namespace Dwolla
             var data = new Dictionary<string, object>
             {
                 {"oauth_token", altToken ?? C.dwolla_access_token},
-                {"pin", altPin.ToString() ?? C.dwolla_pin.ToString()},
+                {"pin", (altPin != null) ? altPin.ToString() : C.dwolla_pin.ToString()},
                 {"fundsSource", fundingSource},
                 {"items", items}
             };

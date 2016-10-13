@@ -22,7 +22,7 @@ namespace Dwolla
             var data = new Dictionary<string, string>
             {
                 {"oauth_token", altToken ?? C.dwolla_access_token},
-                {"pin", altPin.ToString() ?? C.dwolla_pin.ToString()},
+                {"pin", (altPin != null) ? altPin.ToString() : C.dwolla_pin.ToString()},
                 {"destinationId", destinationId},
                 {"amount", amount.ToString()}
             };
@@ -86,7 +86,7 @@ namespace Dwolla
             var data = new Dictionary<string, string>
             {
                 {"oauth_token", altToken ?? C.dwolla_access_token},
-                {"pin", altPin.ToString() ?? C.dwolla_pin.ToString()},
+                {"pin", (altPin != null) ? altPin.ToString() : C.dwolla_pin.ToString()},
                 {"fundsSource", fundingSource},
                 {"transactionId", transactionId},
                 {"amount", amount.ToString()}
@@ -132,7 +132,7 @@ namespace Dwolla
             var data = new Dictionary<string, object>
             {
                 {"oauth_token", altToken ?? C.dwolla_access_token},
-                {"pin", altPin.ToString() ?? C.dwolla_pin.ToString()},
+                {"pin", (altPin != null) ? altPin.ToString() : C.dwolla_pin.ToString()},
                 {"destinationId", destinationId},
                 {"amount", amount.ToString()},
                 {"scheduleDate", scheduleDate},
@@ -190,7 +190,7 @@ namespace Dwolla
             var data = new Dictionary<string, string>
             {
                 {"oauth_token", altToken ?? C.dwolla_access_token},
-                {"pin", altPin.ToString() ?? C.dwolla_pin.ToString()}
+                {"pin", (altPin != null) ? altPin.ToString() : C.dwolla_pin.ToString()}
             };
 
             if (aParams != null) data = aParams.Union(data).ToDictionary(k => k.Key, v => v.Value);
@@ -209,7 +209,7 @@ namespace Dwolla
             return DwollaParse<string>(Delete("/transactions/scheduled/" + id, new Dictionary<string, string>
             {
                 {"oauth_token", altToken ?? C.dwolla_access_token},
-                {"pin", altPin.ToString() ?? C.dwolla_pin.ToString()}
+                {"pin", (altPin != null) ? altPin.ToString() : C.dwolla_pin.ToString()}
             }));
         }
 
@@ -224,7 +224,7 @@ namespace Dwolla
             return DwollaParse<List<string>>(Delete("/transactions/scheduled", new Dictionary<string, string>
             {
                 {"oauth_token", altToken ?? C.dwolla_access_token},
-                {"pin", altPin.ToString() ?? C.dwolla_pin.ToString()}
+                {"pin", (altPin != null) ? altPin.ToString() : C.dwolla_pin.ToString()}
             }));
         }
 
