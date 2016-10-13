@@ -1,33 +1,34 @@
-dwolla.net
+dwolla.net-v2
 =========
 
 [![Join the chat at https://gitter.im/Dwolla/dwolla.net](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Dwolla/dwolla.net?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-An official .NET library for the Dwolla API based on the WCF HTTP client.
+A .NET library for the Dwolla v2 API based on the WCF HTTP client. Based off the [official Dwolla v1 library](https://github.com/Dwolla/dwolla.net).
 
 ## Version
 
-1.0.6
+(no release yet)
 
 ## Installation
 
-`dwolla.net` is available on [NuGet](https://www.nuget.org/packages/dwolla.net). To install, drop to a package-management shell in VS or similar and execute:
+`dwolla.net-v2` is not yet available on [NuGet](https://www.nuget.org/).
+<!-- To install, drop to a package-management shell in VS or similar and execute: -->
 
-```powershell
-Install-Package dwolla.net
-```
+<!-- ```powershell -->
+<!-- Install-Package dwolla.net -->
+<!-- ``` -->
 
 ## Quickstart
 
-`dwolla.net` makes it easy for developers to hit the ground running with our API. Before attempting the following, you should ideally create [an application key and secret](https://www.dwolla.com/applications).
+`dwolla.net-v2` makes it easy for developers to hit the ground running with Dwolla's v2 API. Before attempting the following, you should ideally create [an application key and secret](https://www.dwolla.com/applications).
 
 * Configure your application via `App.config`.
-* Instantiate `dwolla.net` with the class that contains the endpoints you require.
+* Instantiate `dwolla.net-v2` with the class that contains the endpoints you require.
 * Use at will!
 
 ### Application Settings
 
-`dwolla.net` uses the `Config` class to easily pull and change settings located in your application's `App.config` file. 
+`dwolla.net-v2` uses the `Config` class to easily pull and change settings located in your application's `App.config` file.
 
 #### Changing settings
 
@@ -98,7 +99,7 @@ var list = t.Get(altToken: "Some Alternate OAuth Token");
 
 ## Exceptions
 
-`dwolla.net` has two exception classes to help identify invalid API responses:
+`dwolla.net-v2` has two exception classes to help identify invalid API responses:
 
 * `Dwolla.APIException` will be returned when the server returns `false` for the `Success` variable in the standard ["Dwolla envelope"](https://docs.dwolla.com/?json#responses)
 
@@ -401,7 +402,7 @@ public class ScheduledTransactions
 
 ## Structure
 
-`dwolla.net` is a conglomerate of multiple classes; each file in the `lib/` directory contains a class which contains all the endpoints for that certain category ([similar to Dwolla's developer documentation](https://docs.dwolla.com)). 
+`dwolla.net-v2` is a conglomerate of multiple classes; each file in the `lib/` directory contains a class which contains all the endpoints for that certain category ([similar to Dwolla's developer documentation](https://docs.dwolla.com)).
 
 ### Endpoint Classes / Methods
 
@@ -457,9 +458,9 @@ Each endpoint class extends `Rest` located in `Rest.cs`.
 
 ## Integration Testing
 
-`dwolla.net` uses [MSTest](https://msdn.microsoft.com/en-us/library/ms182489.aspx) for its tests, the preferred way to run them is by using the Visual Studio Test Explorer. Integration tests have been written for most endpoints, with unit tests coming on the way for endpoints which are impractical to do live tests for.
+`dwolla.net-v2` uses [MSTest](https://msdn.microsoft.com/en-us/library/ms182489.aspx) for its tests, the preferred way to run them is by using the Visual Studio Test Explorer. Integration tests have been written for most endpoints, with unit tests coming on the way for endpoints which are impractical to do live tests for.
 
-Travis-Ci build verification is planned when the tests are going to be migrated to a framework such as X-Test wihch does not require Microsoft Windows or Visual Studio. As of now, the maintainer runs MSTest to validate each build before pushing. 
+Travis-Ci build verification is planned when the tests are going to be migrated to a framework such as X-Test which does not require Microsoft Windows or Visual Studio. As of now, the maintainer runs MSTest to validate each build before pushing.
 
 ## Changelog
 
