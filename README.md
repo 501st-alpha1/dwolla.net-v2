@@ -58,9 +58,8 @@ It is recommended that you do not change any of the values which have not been l
     <add key="pin" value=""/>
     <add key="access_token" value=""/>
     <add key="oauth_scope" value="Send|Transactions|Balance|Request|Contacts|AccountInfoFull|Funding|ManageAccount" />
-    <add key="production_host" value="https://api.dwolla.com/" />
-    <add key="sandbox_host" value="https://api-uat.dwolla.com/" />
-    <add key="default_postfix" value="oauth/rest" />
+    <add key="production_host" value="https://api.dwolla.com" />
+    <add key="sandbox_host" value="https://api-uat.dwolla.com" />
     <add key="sandbox" value="true"/>
     <add key="debug" value="true"/>
   </appSettings>

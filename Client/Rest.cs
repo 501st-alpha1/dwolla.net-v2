@@ -51,9 +51,8 @@ namespace DwollaV2
     /// </summary>
     /// <param name="endpoint">Dwolla API endpoint</param>
     /// <param name="parameters">A Dictionary with the parameters</param>
-    /// <param name="altPostfix">Alternate REST postfix</param>
     /// <returns>JSON-encoded string with API response</returns>
-    protected string Post(string endpoint, Dictionary<string, string> parameters, string altPostfix = null)
+    protected string Post(string endpoint, Dictionary<string, string> parameters)
     {
       using (var client = new HttpClient())
       {
@@ -61,7 +60,7 @@ namespace DwollaV2
         {
           HttpResponseMessage request = client.PostAsync(
             (C.dwolla_sandbox ? C.dwolla_sandbox_host : C.dwolla_production_host)
-            + (altPostfix ?? C.dwolla_default_postfix) + endpoint, new StringContent(Jss.Serialize(parameters), Encoding.UTF8, "application/json")).Result;
+            + endpoint, new StringContent(Jss.Serialize(parameters), Encoding.UTF8, "application/json")).Result;
           return request.Content.ReadAsStringAsync().Result;
         }
         catch (Exception wtf)
@@ -80,9 +79,8 @@ namespace DwollaV2
     /// </summary>
     /// <param name="endpoint">Dwolla API endpoint</param>
     /// <param name="parameters">A Dictionary with the parameters</param>
-    /// <param name="altPostfix">Alternate REST postfix</param>
     /// <returns>JSON-encoded string with API response</returns>
-    protected string PostSpecial(string endpoint, Dictionary<string, object> parameters, string altPostfix = null)
+    protected string PostSpecial(string endpoint, Dictionary<string, object> parameters)
     {
       using (var client = new HttpClient())
       {
@@ -90,7 +88,7 @@ namespace DwollaV2
         {
           HttpResponseMessage request = client.PostAsync(
             (C.dwolla_sandbox ? C.dwolla_sandbox_host : C.dwolla_production_host)
-            + (altPostfix ?? C.dwolla_default_postfix) + endpoint, new StringContent(Jss.Serialize(parameters), Encoding.UTF8, "application/json")).Result;
+            + endpoint, new StringContent(Jss.Serialize(parameters), Encoding.UTF8, "application/json")).Result;
           return request.Content.ReadAsStringAsync().Result;
         }
         catch (Exception wtf)
@@ -107,15 +105,14 @@ namespace DwollaV2
     /// </summary>
     /// <param name="endpoint">Dwolla API endpoint</param>
     /// <param name="parameters">A Dictionary with the parameters</param>
-    /// <param name="altPostfix">Alternate REST postfix</param>
     /// <returns>JSON-encoded string with API response</returns>
-    protected string Get(string endpoint, Dictionary<string, string> parameters, string altPostfix = null)
+    protected string Get(string endpoint, Dictionary<string, string> parameters)
     {
       using (var client = new HttpClient())
       {
         var builder = new UriBuilder(
           (C.dwolla_sandbox ? C.dwolla_sandbox_host : C.dwolla_production_host)
-          + (altPostfix ?? C.dwolla_default_postfix) + endpoint);
+          + endpoint);
 
         NameValueCollection query = HttpUtility.ParseQueryString(builder.Query);
 
@@ -142,9 +139,8 @@ namespace DwollaV2
     /// </summary>
     /// <param name="endpoint">Dwolla API endpoint</param>
     /// <param name="parameters">A Dictionary with the parameters</param>
-    /// <param name="altPostfix">Alternate REST postfix</param>
     /// <returns>JSON-encoded string with API response</returns>
-    protected string Put(string endpoint, Dictionary<string, string> parameters, string altPostfix = null)
+    protected string Put(string endpoint, Dictionary<string, string> parameters)
     {
       using (var client = new HttpClient())
       {
@@ -152,7 +148,7 @@ namespace DwollaV2
         {
           HttpResponseMessage request = client.PutAsync(
             (C.dwolla_sandbox ? C.dwolla_sandbox_host : C.dwolla_production_host)
-            + (altPostfix ?? C.dwolla_default_postfix) + endpoint, new StringContent(Jss.Serialize(parameters), Encoding.UTF8, "application/json")).Result;
+            + endpoint, new StringContent(Jss.Serialize(parameters), Encoding.UTF8, "application/json")).Result;
           return request.Content.ReadAsStringAsync().Result;
         }
         catch (Exception wtf)
@@ -171,9 +167,8 @@ namespace DwollaV2
     /// </summary>
     /// <param name="endpoint">Dwolla API endpoint</param>
     /// <param name="parameters">A Dictionary with the parameters</param>
-    /// <param name="altPostfix">Alternate REST postfix</param>
     /// <returns>JSON-encoded string with API response</returns>
-    protected string PutSpecial(string endpoint, Dictionary<string, object> parameters, string altPostfix = null)
+    protected string PutSpecial(string endpoint, Dictionary<string, object> parameters)
     {
       using (var client = new HttpClient())
       {
@@ -181,7 +176,7 @@ namespace DwollaV2
         {
           HttpResponseMessage request = client.PutAsync(
             (C.dwolla_sandbox ? C.dwolla_sandbox_host : C.dwolla_production_host)
-            + (altPostfix ?? C.dwolla_default_postfix) + endpoint, new StringContent(Jss.Serialize(parameters), Encoding.UTF8, "application/json")).Result;
+            + endpoint, new StringContent(Jss.Serialize(parameters), Encoding.UTF8, "application/json")).Result;
           return request.Content.ReadAsStringAsync().Result;
         }
         catch (Exception wtf)
@@ -198,15 +193,14 @@ namespace DwollaV2
     /// </summary>
     /// <param name="endpoint">Dwolla API endpoint</param>
     /// <param name="parameters">A Dictionary with the parameters</param>
-    /// <param name="altPostfix">Alternate REST postfix</param>
     /// <returns>JSON-encoded string with API response</returns>
-    protected string Delete(string endpoint, Dictionary<string, string> parameters, string altPostfix = null)
+    protected string Delete(string endpoint, Dictionary<string, string> parameters)
     {
       using (var client = new HttpClient())
       {
         var builder = new UriBuilder(
           (C.dwolla_sandbox ? C.dwolla_sandbox_host : C.dwolla_production_host)
-          + (altPostfix ?? C.dwolla_default_postfix) + endpoint);
+          + endpoint);
 
         NameValueCollection query = HttpUtility.ParseQueryString(builder.Query);
 
