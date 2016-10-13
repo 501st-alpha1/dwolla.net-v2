@@ -468,9 +468,12 @@ This wrapper is based on [HttpClient](https://msdn.microsoft.com/en-us/library/s
 
 Initially written by [David Stancu](http://davidstancu.me) (david@dwolla.com).
 
+Rewrite for v2 API by [Scott Weldon](https://scott-weldon.com) (open-source@scott-weldon.com).
+
 ## License
 
-Copyright (c) 2015 Dwolla Inc, David Stancu
+Copyright (c) 2015 Dwolla Inc, David Stancu  
+Copyright (c) 2016 Outlyer Technologies, Scott Weldon
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
