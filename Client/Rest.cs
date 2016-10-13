@@ -42,7 +42,9 @@ namespace DwollaV2
     {
       if (response.IsSuccessStatusCode)
       {
-        return Jss.Deserialize<T>(response);
+        string content = response.Content.ReadAsStringAsync().Result;
+
+        return Jss.Deserialize<T>(content);
       }
       else
       {
