@@ -53,7 +53,7 @@ namespace DwollaV2
     /// <param name="endpoint">Dwolla API endpoint</param>
     /// <param name="parameters">A Dictionary with the parameters</param>
     /// <returns>JSON-encoded string with API response</returns>
-    protected string Post(string endpoint, Dictionary<string, string> parameters)
+    protected HttpResponseMessage Post(string endpoint, Dictionary<string, string> parameters)
     {
       using (var client = new HttpClient())
       {
@@ -66,7 +66,7 @@ namespace DwollaV2
             (C.dwolla_sandbox ? C.dwolla_sandbox_host : C.dwolla_production_host)
             + endpoint, new StringContent(Jss.Serialize(parameters), Encoding.UTF8, "application/json")).Result;
 
-          return response.Content.ReadAsStringAsync().Result;
+          return response;
         }
         catch (Exception wtf)
         {
@@ -85,7 +85,7 @@ namespace DwollaV2
     /// <param name="endpoint">Dwolla API endpoint</param>
     /// <param name="parameters">A Dictionary with the parameters</param>
     /// <returns>JSON-encoded string with API response</returns>
-    protected string PostSpecial(string endpoint, Dictionary<string, object> parameters)
+    protected HttpResponseMessage PostSpecial(string endpoint, Dictionary<string, object> parameters)
     {
       using (var client = new HttpClient())
       {
@@ -98,7 +98,7 @@ namespace DwollaV2
             (C.dwolla_sandbox ? C.dwolla_sandbox_host : C.dwolla_production_host)
             + endpoint, new StringContent(Jss.Serialize(parameters), Encoding.UTF8, "application/json")).Result;
 
-          return response.Content.ReadAsStringAsync().Result;
+          return response;
         }
         catch (Exception wtf)
         {
@@ -152,7 +152,7 @@ namespace DwollaV2
     /// <param name="endpoint">Dwolla API endpoint</param>
     /// <param name="parameters">A Dictionary with the parameters</param>
     /// <returns>JSON-encoded string with API response</returns>
-    protected string Put(string endpoint, Dictionary<string, string> parameters)
+    protected HttpResponseMessage Put(string endpoint, Dictionary<string, string> parameters)
     {
       using (var client = new HttpClient())
       {
@@ -165,7 +165,7 @@ namespace DwollaV2
             (C.dwolla_sandbox ? C.dwolla_sandbox_host : C.dwolla_production_host)
             + endpoint, new StringContent(Jss.Serialize(parameters), Encoding.UTF8, "application/json")).Result;
 
-          return response.Content.ReadAsStringAsync().Result;
+          return response;
         }
         catch (Exception wtf)
         {
@@ -184,7 +184,7 @@ namespace DwollaV2
     /// <param name="endpoint">Dwolla API endpoint</param>
     /// <param name="parameters">A Dictionary with the parameters</param>
     /// <returns>JSON-encoded string with API response</returns>
-    protected string PutSpecial(string endpoint, Dictionary<string, object> parameters)
+    protected HttpResponseMessage PutSpecial(string endpoint, Dictionary<string, object> parameters)
     {
       using (var client = new HttpClient())
       {
@@ -197,7 +197,7 @@ namespace DwollaV2
             (C.dwolla_sandbox ? C.dwolla_sandbox_host : C.dwolla_production_host)
             + endpoint, new StringContent(Jss.Serialize(parameters), Encoding.UTF8, "application/json")).Result;
 
-          return response.Content.ReadAsStringAsync().Result;
+          return response;
         }
         catch (Exception wtf)
         {
