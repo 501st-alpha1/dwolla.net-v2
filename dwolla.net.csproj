@@ -61,6 +61,7 @@
     <Compile Include="Client\SerializableTypes\EmbeddedErrorResponse.cs" />
     <Compile Include="Client\SerializableTypes\EmbeddedErrorList.cs" />
     <Compile Include="Client\SerializableTypes\Customer.cs" />
+    <Compile Include="Endpoints\Customers.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\Settings.settings">
