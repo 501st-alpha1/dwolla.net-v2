@@ -34,17 +34,22 @@ namespace DwollaV2
     /// </summary>
     /// <typeparam name="T">Type of serializable data</typeparam>
     /// <param name="response">JSON response string</param>
-    /// <param name="noEnvelope">Some endpoints have no Dwolla "envelope"</param>
     /// <returns>
     ///   Can either be a single object or a serializable
     ///   type as a part of a collection
     /// </returns>
-    protected T DwollaParse<T>(string response, bool noEnvelope=false)
+    protected T DwollaParse<T>(HttpResponseMessage response)
     {
-      if (noEnvelope) return Jss.Deserialize<T>(response);
-      var r = Jss.Deserialize<DwollaResponse<T>>(response);
-      if (r.Success) return r.Response;
-      throw new ApiException(r.Message);
+      string content = response.Content.ReadAsStringAsync().Result;
+      if (response.IsSuccessStatusCode)
+      {
+        return Jss.Deserialize<T>(content);
+      }
+      else
+      {
+        // TODO: Add better error handling?
+        throw new Exception(content);
+      }
     }
 
     /// <summary>
