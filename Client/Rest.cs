@@ -89,7 +89,7 @@ namespace DwollaV2
       {
         try
         {
-          client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", parameters["oauth_token"]);
+          client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", (string)parameters["oauth_token"]);
 
           HttpResponseMessage request = client.PostAsync(
             (C.dwolla_sandbox ? C.dwolla_sandbox_host : C.dwolla_production_host)
@@ -183,7 +183,7 @@ namespace DwollaV2
       {
         try
         {
-          client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", parameters["oauth_token"]);
+          client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", (string)parameters["oauth_token"]);
 
           HttpResponseMessage request = client.PutAsync(
             (C.dwolla_sandbox ? C.dwolla_sandbox_host : C.dwolla_production_host)
