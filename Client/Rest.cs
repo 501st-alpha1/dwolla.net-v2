@@ -62,10 +62,11 @@ namespace DwollaV2
           client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", parameters["oauth_token"]);
           client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(C.dwolla_accept));
 
-          HttpResponseMessage request = client.PostAsync(
+          HttpResponseMessage response = client.PostAsync(
             (C.dwolla_sandbox ? C.dwolla_sandbox_host : C.dwolla_production_host)
             + endpoint, new StringContent(Jss.Serialize(parameters), Encoding.UTF8, "application/json")).Result;
-          return request.Content.ReadAsStringAsync().Result;
+
+          return response.Content.ReadAsStringAsync().Result;
         }
         catch (Exception wtf)
         {
@@ -93,10 +94,11 @@ namespace DwollaV2
           client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", (string)parameters["oauth_token"]);
           client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(C.dwolla_accept));
 
-          HttpResponseMessage request = client.PostAsync(
+          HttpResponseMessage response = client.PostAsync(
             (C.dwolla_sandbox ? C.dwolla_sandbox_host : C.dwolla_production_host)
             + endpoint, new StringContent(Jss.Serialize(parameters), Encoding.UTF8, "application/json")).Result;
-          return request.Content.ReadAsStringAsync().Result;
+
+          return response.Content.ReadAsStringAsync().Result;
         }
         catch (Exception wtf)
         {
@@ -159,10 +161,11 @@ namespace DwollaV2
           client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", parameters["oauth_token"]);
           client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(C.dwolla_accept));
 
-          HttpResponseMessage request = client.PutAsync(
+          HttpResponseMessage response = client.PutAsync(
             (C.dwolla_sandbox ? C.dwolla_sandbox_host : C.dwolla_production_host)
             + endpoint, new StringContent(Jss.Serialize(parameters), Encoding.UTF8, "application/json")).Result;
-          return request.Content.ReadAsStringAsync().Result;
+
+          return response.Content.ReadAsStringAsync().Result;
         }
         catch (Exception wtf)
         {
@@ -190,10 +193,11 @@ namespace DwollaV2
           client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", (string)parameters["oauth_token"]);
           client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(C.dwolla_accept));
 
-          HttpResponseMessage request = client.PutAsync(
+          HttpResponseMessage response = client.PutAsync(
             (C.dwolla_sandbox ? C.dwolla_sandbox_host : C.dwolla_production_host)
             + endpoint, new StringContent(Jss.Serialize(parameters), Encoding.UTF8, "application/json")).Result;
-          return request.Content.ReadAsStringAsync().Result;
+
+          return response.Content.ReadAsStringAsync().Result;
         }
         catch (Exception wtf)
         {
