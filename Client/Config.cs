@@ -97,5 +97,14 @@ namespace DwollaV2
       get { return Convert.ToBoolean(ConfigurationManager.AppSettings["dwolla_sandbox"]); }
       set { ConfigurationManager.AppSettings["dwolla_sandbox"] = value.ToString(); }
     }
+
+    /// <summary>
+    ///   Accept header for Dwolla API
+    /// </summary>
+    public string dwolla_accept
+    {
+      get { return ConfigurationManager.AppSettings["dwolla_accept"]; }
+      set { ConfigurationManager.AppSettings["dwolla_accept"] = value; }
+    }
   }
 }

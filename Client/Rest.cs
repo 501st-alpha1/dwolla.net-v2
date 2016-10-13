@@ -60,6 +60,7 @@ namespace DwollaV2
         try
         {
           client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", parameters["oauth_token"]);
+          client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(C.dwolla_accept));
 
           HttpResponseMessage request = client.PostAsync(
             (C.dwolla_sandbox ? C.dwolla_sandbox_host : C.dwolla_production_host)
@@ -90,6 +91,7 @@ namespace DwollaV2
         try
         {
           client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", (string)parameters["oauth_token"]);
+          client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(C.dwolla_accept));
 
           HttpResponseMessage request = client.PostAsync(
             (C.dwolla_sandbox ? C.dwolla_sandbox_host : C.dwolla_production_host)
@@ -116,6 +118,7 @@ namespace DwollaV2
       using (var client = new HttpClient())
       {
         client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", parameters["oauth_token"]);
+        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(C.dwolla_accept));
 
         var builder = new UriBuilder(
           (C.dwolla_sandbox ? C.dwolla_sandbox_host : C.dwolla_production_host)
@@ -154,6 +157,7 @@ namespace DwollaV2
         try
         {
           client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", parameters["oauth_token"]);
+          client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(C.dwolla_accept));
 
           HttpResponseMessage request = client.PutAsync(
             (C.dwolla_sandbox ? C.dwolla_sandbox_host : C.dwolla_production_host)
@@ -184,6 +188,7 @@ namespace DwollaV2
         try
         {
           client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", (string)parameters["oauth_token"]);
+          client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(C.dwolla_accept));
 
           HttpResponseMessage request = client.PutAsync(
             (C.dwolla_sandbox ? C.dwolla_sandbox_host : C.dwolla_production_host)
@@ -210,6 +215,7 @@ namespace DwollaV2
       using (var client = new HttpClient())
       {
         client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", parameters["oauth_token"]);
+        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(C.dwolla_accept));
 
         var builder = new UriBuilder(
           (C.dwolla_sandbox ? C.dwolla_sandbox_host : C.dwolla_production_host)

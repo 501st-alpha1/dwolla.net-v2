@@ -62,6 +62,7 @@ It is recommended that you do not change any of the values which have not been l
     <add key="sandbox_host" value="https://api-uat.dwolla.com" />
     <add key="sandbox" value="true"/>
     <add key="debug" value="true"/>
+    <add key="dwolla_accept" value="application/vnd.dwolla.v1.hal+json" />
   </appSettings>
 </configuration>
 ```
