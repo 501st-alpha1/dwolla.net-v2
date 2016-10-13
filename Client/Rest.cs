@@ -7,6 +7,7 @@ using System.Collections.Specialized;
 using System.Web.Script.Serialization;
 
 using DwollaV2.SerializableTypes;
+using System.Net.Http.Headers;
 
 namespace DwollaV2
 {
@@ -59,6 +60,8 @@ namespace DwollaV2
       {
         try
         {
+          client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", parameters["oauth_token"]);
+
           HttpResponseMessage request = client.PostAsync(
             (C.dwolla_sandbox ? C.dwolla_sandbox_host : C.dwolla_production_host)
             + (altPostfix ?? C.dwolla_default_postfix) + endpoint, new StringContent(Jss.Serialize(parameters), Encoding.UTF8, "application/json")).Result;
@@ -88,6 +91,8 @@ namespace DwollaV2
       {
         try
         {
+          client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", parameters["oauth_token"]);
+
           HttpResponseMessage request = client.PostAsync(
             (C.dwolla_sandbox ? C.dwolla_sandbox_host : C.dwolla_production_host)
             + (altPostfix ?? C.dwolla_default_postfix) + endpoint, new StringContent(Jss.Serialize(parameters), Encoding.UTF8, "application/json")).Result;
@@ -113,6 +118,8 @@ namespace DwollaV2
     {
       using (var client = new HttpClient())
       {
+        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", parameters["oauth_token"]);
+
         var builder = new UriBuilder(
           (C.dwolla_sandbox ? C.dwolla_sandbox_host : C.dwolla_production_host)
           + (altPostfix ?? C.dwolla_default_postfix) + endpoint);
@@ -150,6 +157,8 @@ namespace DwollaV2
       {
         try
         {
+          client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", parameters["oauth_token"]);
+
           HttpResponseMessage request = client.PutAsync(
             (C.dwolla_sandbox ? C.dwolla_sandbox_host : C.dwolla_production_host)
             + (altPostfix ?? C.dwolla_default_postfix) + endpoint, new StringContent(Jss.Serialize(parameters), Encoding.UTF8, "application/json")).Result;
@@ -179,6 +188,8 @@ namespace DwollaV2
       {
         try
         {
+          client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", parameters["oauth_token"]);
+
           HttpResponseMessage request = client.PutAsync(
             (C.dwolla_sandbox ? C.dwolla_sandbox_host : C.dwolla_production_host)
             + (altPostfix ?? C.dwolla_default_postfix) + endpoint, new StringContent(Jss.Serialize(parameters), Encoding.UTF8, "application/json")).Result;
@@ -204,6 +215,8 @@ namespace DwollaV2
     {
       using (var client = new HttpClient())
       {
+        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", parameters["oauth_token"]);
+
         var builder = new UriBuilder(
           (C.dwolla_sandbox ? C.dwolla_sandbox_host : C.dwolla_production_host)
           + (altPostfix ?? C.dwolla_default_postfix) + endpoint);
