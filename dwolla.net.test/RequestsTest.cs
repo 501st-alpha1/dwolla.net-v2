@@ -17,20 +17,20 @@ namespace dwolla.net.test
     [TestMethod]
     public void TestCreateInfoCancel()
     {
-      var create = r.Create("812-174-9528", 0.01, altToken: "raopmI6N9UIq87uWqhXB5v7xIgi49EH3K3qSFwtoZ/CzcBCN+l");
+      var create = r.Create("812-174-9528", 0.01);
       Assert.IsInstanceOfType(create, typeof(int));
 
-      var info = r.Info(create.ToString(), altToken: "raopmI6N9UIq87uWqhXB5v7xIgi49EH3K3qSFwtoZ/CzcBCN+l");
+      var info = r.Info(create.ToString());
       Assert.IsInstanceOfType(info, typeof(Request));
 
-      var cancel = r.Cancel(create.ToString(), altToken: "raopmI6N9UIq87uWqhXB5v7xIgi49EH3K3qSFwtoZ/CzcBCN+l");
+      var cancel = r.Cancel(create.ToString());
       Assert.IsInstanceOfType(cancel, typeof(string));
     }
 
     [TestMethod]
     public void TestGet()
     {
-      var result = r.Get(altToken: "raopmI6N9UIq87uWqhXB5v7xIgi49EH3K3qSFwtoZ/CzcBCN+l");
+      var result = r.Get();
       Assert.IsInstanceOfType(result, typeof(List<Request>));
     }
   }

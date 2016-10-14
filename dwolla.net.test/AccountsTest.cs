@@ -21,14 +21,14 @@ namespace dwolla.net.test
     [TestMethod]
     public void TestFull()
     {
-      var result = a.Full("raopmI6N9UIq87uWqhXB5v7xIgi49EH3K3qSFwtoZ/CzcBCN+l");
+      var result = a.Full();
       Assert.IsInstanceOfType(result, typeof(UserFull));
     }
 
     [TestMethod]
     public void TestBalance()
     {
-      var result = a.Balance("raopmI6N9UIq87uWqhXB5v7xIgi49EH3K3qSFwtoZ/CzcBCN+l");
+      var result = a.Balance();
       Assert.IsInstanceOfType(result, typeof(double));
     }
 
@@ -42,7 +42,7 @@ namespace dwolla.net.test
     [TestMethod]
     public void TestAWS()
     {
-      var result = a.GetAutoWithdrawalStatus("raopmI6N9UIq87uWqhXB5v7xIgi49EH3K3qSFwtoZ/CzcBCN+l");
+      var result = a.GetAutoWithdrawalStatus();
       Assert.IsInstanceOfType(result, typeof(AutoWithdrawalStatus));
     }
   }

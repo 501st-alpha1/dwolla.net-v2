@@ -18,24 +18,24 @@ namespace dwolla.net.test
     [TestMethod]
     public void TestSendandInfo()
     {
-      var send = t.Send("812-174-9528", 0.01, altToken: "raopmI6N9UIq87uWqhXB5v7xIgi49EH3K3qSFwtoZ/CzcBCN+l", altPin: 1337);
+      var send = t.Send("812-174-9528", 0.01);
       Assert.IsInstanceOfType(send, typeof(int));
 
-      var info = t.Info(send.ToString(), "raopmI6N9UIq87uWqhXB5v7xIgi49EH3K3qSFwtoZ/CzcBCN+l");
+      var info = t.Info(send.ToString());
       Assert.IsInstanceOfType(info, typeof(Transaction));
     }
 
     [TestMethod]
     public void TestGet()
     {
-      var result = t.Get(altToken: "raopmI6N9UIq87uWqhXB5v7xIgi49EH3K3qSFwtoZ/CzcBCN+l");
+      var result = t.Get();
       Assert.IsInstanceOfType(result, typeof(List<Transaction>));
     }
 
     [TestMethod]
     public void TestStats()
     {
-      var result = t.Stats(altToken: "raopmI6N9UIq87uWqhXB5v7xIgi49EH3K3qSFwtoZ/CzcBCN+l");
+      var result = t.Stats();
       Assert.IsInstanceOfType(result, typeof(TransactionStats));
     }
   }
