@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Dwolla.SerializableTypes
+namespace DwollaV2.SerializableTypes
 {
   public class EmbeddedErrorList
   {
