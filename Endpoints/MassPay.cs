@@ -40,11 +40,12 @@ namespace Dwolla
     /// <returns>MassPayJob item</returns>
     public MassPayJob GetJob(string id, string altToken = null)
     {
-      return DwollaParse<MassPayJob>(Get("/masspay/" + id,
-        new Dictionary<string, string>
-        {
-          {"oauth_token", altToken ?? C.dwolla_access_token}
-        }));
+      var data = new Dictionary<string, string>
+      {
+        {"oauth_token", altToken ?? C.dwolla_access_token}
+      };
+
+      return DwollaParse<MassPayJob>(Get("/masspay/" + id, data));
     }
 
     /// <summary>
@@ -75,11 +76,14 @@ namespace Dwolla
     /// <returns>MassPayItem object</returns>
     public MassPayRetrievedItem GetItem(string jobId, string itemId, string altToken = null)
     {
-      return DwollaParse<MassPayRetrievedItem>(Get("/masspay/" + jobId + "/items/" + itemId,
-        new Dictionary<string, string>
-        {
-          {"oauth_token", altToken ?? C.dwolla_access_token}
-        }));
+      var data = new Dictionary<string, string>
+      {
+        {"oauth_token", altToken ?? C.dwolla_access_token}
+      };
+
+      return DwollaParse<MassPayRetrievedItem>(Get("/masspay/" + jobId
+                                                   + "/items/" + itemId,
+                                                   data));
     }
 
     /// <summary>
@@ -90,11 +94,12 @@ namespace Dwolla
     /// <returns>List of MassPayJob objects</returns>
     public List<MassPayJob> ListJobs(string altToken = null)
     {
-      return DwollaParse<List<MassPayJob>>(Get("/masspay",
-        new Dictionary<string, string>
-        {
-          {"oauth_token", altToken ?? C.dwolla_access_token}
-        }));
+      var data = new Dictionary<string, string>
+      {
+        {"oauth_token", altToken ?? C.dwolla_access_token}
+      };
+
+      return DwollaParse<List<MassPayJob>>(Get("/masspay", data));
     }
   }
 }

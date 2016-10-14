@@ -14,8 +14,13 @@ namespace Dwolla
     /// <returns>FundingSource object</returns>
     public FundingSource Info(string fundingId, string altToken = null)
     {
+      var data = new Dictionary<string, string>
+      {
+        {"oauth_token", altToken ?? C.dwolla_access_token}
+      };
+
       return DwollaParse<FundingSource>(Get("/fundingsources/" + fundingId,
-        new Dictionary<string, string> {{"oauth_token", altToken ?? C.dwolla_access_token}}));
+                                            data));
     }
 
     /// <summary>
@@ -48,14 +53,16 @@ namespace Dwolla
     /// <returns>The FundingSource object of the newly created funding source</returns>
     public FundingSource Add(string account, string routing, string type, string name, string altToken = null)
     {
-      return DwollaParse<FundingSource>(Post("/fundingsources", new Dictionary<string, string>
-        {
-          {"oauth_token", altToken ?? C.dwolla_access_token},
-          {"account_number", account},
-          {"routing_number", routing},
-          {"account_type", type},
-          {"name", name}
-        }));
+      var data = new Dictionary<string, string>
+      {
+        {"oauth_token", altToken ?? C.dwolla_access_token},
+        {"account_number", account},
+        {"routing_number", routing},
+        {"account_type", type},
+        {"name", name}
+      };
+
+      return DwollaParse<FundingSource>(Post("/fundingsources", data));
     }
 
     /// <summary>
@@ -70,13 +77,15 @@ namespace Dwolla
     /// <returns>Successful verification?</returns>
     public bool? Verify(double d1, double d2, string fundingId, string altToken = null)
     {
-      var fS = DwollaParse<FundingSource>(Post("/fundingsources/" + fundingId + "/verify",
-        new Dictionary<string, string>
-        {
-          {"oauth_token", altToken ?? C.dwolla_access_token},
-          {"deposit1", d1.ToString()},
-          {"deposit2", d2.ToString()}
-        }));
+      var data = new Dictionary<string, string>
+      {
+        {"oauth_token", altToken ?? C.dwolla_access_token},
+        {"deposit1", d1.ToString()},
+        {"deposit2", d2.ToString()}
+      };
+      var fS = DwollaParse<FundingSource>(Post("/fundingsources/" + fundingId
+                                               + "/verify", data));
+
       return fS.Verified;
     }
 
@@ -92,13 +101,15 @@ namespace Dwolla
     /// <returns>Resulting Transaction object</returns>
     public Transaction Withdraw(double amount, string fundingId, string altToken = null, int? altPin = null)
     {
-      return DwollaParse<Transaction>(Post("/fundingsources/" + fundingId + "/withdraw",
-        new Dictionary<string, string>
-        {
-          {"oauth_token", altToken ?? C.dwolla_access_token},
-          {"pin", (altPin != null) ? altPin.ToString() : C.dwolla_pin.ToString()},
-          {"amount", amount.ToString()},
-        }));
+      var data = new Dictionary<string, string>
+      {
+        {"oauth_token", altToken ?? C.dwolla_access_token},
+        {"pin", (altPin != null) ? altPin.ToString() : C.dwolla_pin.ToString()},
+        {"amount", amount.ToString()},
+      };
+
+      return DwollaParse<Transaction>(Post("/fundingsources/" + fundingId
+                                           + "/withdraw", data));
     }
 
     /// <summary>
@@ -113,13 +124,15 @@ namespace Dwolla
     /// <returns>Resulting Transaction object</returns>
     public Transaction Deposit(double amount, string fundingId, string altToken = null, int? altPin = null)
     {
-      return DwollaParse<Transaction>(Post("/fundingsources/" + fundingId + "/deposit",
-        new Dictionary<string, string>
-        {
-          {"oauth_token", altToken ?? C.dwolla_access_token},
-          {"pin", (altPin != null) ? altPin.ToString() : C.dwolla_pin.ToString()},
-          {"amount", amount.ToString()},
-        }));
+      var data = new Dictionary<string, string>
+      {
+        {"oauth_token", altToken ?? C.dwolla_access_token},
+        {"pin", (altPin != null) ? altPin.ToString() : C.dwolla_pin.ToString()},
+        {"amount", amount.ToString()},
+      };
+
+      return DwollaParse<Transaction>(Post("/fundingsources/" + fundingId
+                                           + "/deposit", data));
     }
   }
 }

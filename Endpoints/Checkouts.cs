@@ -34,12 +34,14 @@ namespace Dwolla
     /// <returns>Checkout object</returns>
     public Checkout Get(string checkoutId)
     {
-      return DwollaParse<Checkout>(Get("/offsitegateway/checkouts/" + checkoutId,
-        new Dictionary<string, string>
-        {
-          {"client_id", C.dwolla_key},
-          {"client_secret", C.dwolla_secret}
-        }));
+      var data = new Dictionary<string, string>
+      {
+        {"client_id", C.dwolla_key},
+        {"client_secret", C.dwolla_secret}
+      };
+
+      return DwollaParse<Checkout>(Get("/offsitegateway/checkouts/"
+                                       + checkoutId, data));
     }
 
     /// <summary>
@@ -49,12 +51,15 @@ namespace Dwolla
     /// <returns>CheckoutComplete object</returns>
     public CheckoutComplete Complete(string checkoutId)
     {
-      return DwollaParse<CheckoutComplete>(Post("/offsitegateway/checkouts/" + checkoutId + "/complete",
-        new Dictionary<string, string>
-        {
-          {"client_id", C.dwolla_key},
-          {"client_secret", C.dwolla_secret}
-        }));
+      var data = new Dictionary<string, string>
+      {
+        {"client_id", C.dwolla_key},
+        {"client_secret", C.dwolla_secret}
+      };
+
+      return DwollaParse<CheckoutComplete>(Post("/offsitegateway/checkouts/"
+                                                + checkoutId + "/complete",
+                                                data));
     }
   }
 }

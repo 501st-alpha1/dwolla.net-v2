@@ -55,8 +55,12 @@ namespace Dwolla
     /// <returns>A Request object</returns>
     public Request Info(string requestId, string altToken = null)
     {
-      return DwollaParse<Request>(Get("/requests/" + requestId,
-        new Dictionary<string, string> {{"oauth_token", altToken ?? C.dwolla_access_token}}));
+      var data = new Dictionary<string, string>
+      {
+        {"oauth_token", altToken ?? C.dwolla_access_token}
+      };
+
+      return DwollaParse<Request>(Get("/requests/" + requestId, data));
     }
 
     /// <summary>
@@ -67,8 +71,13 @@ namespace Dwolla
     /// <returns>Empty string (sorry)</returns>
     public string Cancel(string requestId, string altToken = null)
     {
+      var data = new Dictionary<string, string>
+      {
+        {"oauth_token", altToken ?? C.dwolla_access_token}
+      };
+
       return DwollaParse<string>(Post("/requests/" + requestId + "/cancel",
-        new Dictionary<string, string> {{"oauth_token", altToken ?? C.dwolla_access_token}}));
+                                      data));
     }
 
     /// <summary>
@@ -91,7 +100,8 @@ namespace Dwolla
       };
 
       if (aParams != null) data = aParams.Union(data).ToDictionary(k => k.Key, v => v.Value);
-      return DwollaParse<RequestFulfilled>(Post("/requests/" + requestId + "/fulfill", data));
+      return DwollaParse<RequestFulfilled>(Post("/requests/" + requestId
+                                                + "/fulfill", data));
     }
   }
 }

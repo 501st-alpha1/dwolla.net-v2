@@ -81,7 +81,11 @@ namespace Dwolla
     /// <returns>OAuthCatalog object</returns>
     public OAuthCatalog Catalog(string altToken = null)
     {
-      var response = Get("/catalog", new Dictionary<string, string> { { "oauth_token", altToken ?? C.dwolla_access_token } });
+      var data = new Dictionary<string, string>
+      {
+        {"oauth_token", altToken ?? C.dwolla_access_token}
+      };
+      var response = Get("/catalog", data);
 
       var cat = Jss.Deserialize<OAuthCatalog>(response);
       if (cat.Success) return cat;

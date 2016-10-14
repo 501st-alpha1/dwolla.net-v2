@@ -60,13 +60,15 @@ namespace Dwolla
     /// <returns>Transaction object</returns>
     public Transaction Info(string transactionId, string altToken = null)
     {
+      var data = new Dictionary<string, string>
+      {
+        {"oauth_token", altToken ?? C.dwolla_access_token},
+        {"client_id", C.dwolla_key},
+        {"client_secret", C.dwolla_secret}
+      };
+
       return DwollaParse<Transaction>(Get("/transactions/" + transactionId,
-        new Dictionary<string, string>
-        {
-          {"oauth_token", altToken ?? C.dwolla_access_token},
-          {"client_id", C.dwolla_key},
-          {"client_secret", C.dwolla_secret}
-        }));
+                                          data));
     }
 
     /// <summary>
@@ -206,11 +208,13 @@ namespace Dwolla
     /// <returns>String with ID of deleted transaction</returns>
     public string DeleteScheduledById(string id, string altToken = null, int? altPin = null)
     {
-      return DwollaParse<string>(Delete("/transactions/scheduled/" + id, new Dictionary<string, string>
-        {
-          {"oauth_token", altToken ?? C.dwolla_access_token},
-          {"pin", (altPin != null) ? altPin.ToString() : C.dwolla_pin.ToString()}
-        }));
+      var data = new Dictionary<string, string>
+      {
+        {"oauth_token", altToken ?? C.dwolla_access_token},
+        {"pin", (altPin != null) ? altPin.ToString() : C.dwolla_pin.ToString()}
+      };
+
+      return DwollaParse<string>(Delete("/transactions/scheduled/" + id, data));
     }
 
     /// <summary>
@@ -221,11 +225,13 @@ namespace Dwolla
     /// <returns>List of strings with IDs of deleted transactions</returns>
     public List<string> DeleteAllScheduled(string altToken = null, int? altPin = null)
     {
-      return DwollaParse<List<string>>(Delete("/transactions/scheduled", new Dictionary<string, string>
-        {
-          {"oauth_token", altToken ?? C.dwolla_access_token},
-          {"pin", (altPin != null) ? altPin.ToString() : C.dwolla_pin.ToString()}
-        }));
+      var data = new Dictionary<string, string>
+      {
+        {"oauth_token", altToken ?? C.dwolla_access_token},
+        {"pin", (altPin != null) ? altPin.ToString() : C.dwolla_pin.ToString()}
+      };
+
+      return DwollaParse<List<string>>(Delete("/transactions/scheduled", data));
     }
   }
 }
