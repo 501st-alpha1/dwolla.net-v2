@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Configuration;
 
-namespace Dwolla
+namespace DwollaV2
 {
   /// <summary>
   ///   Configuration class, wraps around ConfigurationManager

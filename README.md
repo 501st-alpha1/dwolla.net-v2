@@ -71,7 +71,7 @@ It is recommended that you do not change any of the values which have not been l
 
 To list 10 transactions from a user with the OAuth token set in the configuration settings:
 ```cs
-using Dwolla;
+using DwollaV2;
 
 var t = new Transactions();
 var list = t.Get();
@@ -79,7 +79,7 @@ var list = t.Get();
 
 ...or, to specify an alternate OAuth token:
 ```cs
-using Dwolla;
+using DwollaV2;
 
 var t = new Transactions();
 var list = t.Get(altToken: "Some Alternate OAuth Token");
@@ -101,13 +101,13 @@ var list = t.Get(altToken: "Some Alternate OAuth Token");
 
 `dwolla.net-v2` has two exception classes to help identify invalid API responses:
 
-* `Dwolla.APIException` will be returned when the server returns `false` for the `Success` variable in the standard ["Dwolla envelope"](https://docs.dwolla.com/?json#responses)
+* `DwollaV2.APIException` will be returned when the server returns `false` for the `Success` variable in the standard ["Dwolla envelope"](https://docs.dwolla.com/?json#responses)
 
-* `Dwolla.OAuthException` will be returned when `access_token` is returned null - the library will then attempt to re-serialize the response as an `OAuthError` to return the error body.
+* `DwollaV2.OAuthException` will be returned when `access_token` is returned null - the library will then attempt to re-serialize the response as an `OAuthError` to return the error body.
 
 ## Serializable Types
 
-In order to make the developer's life easier, we have included various serializable types of objects needed to make requests to our API in `Dwolla.SerializableTypes`. Nullable types for primitives have been used so that the WCF serializer does not throw an exception when the API returns a null value for a non-nullable primitive. 
+In order to make the developer's life easier, we have included various serializable types of objects needed to make requests to our API in `DwollaV2.SerializableTypes`. Nullable types for primitives have been used so that the WCF serializer does not throw an exception when the API returns a null value for a non-nullable primitive.
 
 ```cs
 public class DwollaResponse<T>

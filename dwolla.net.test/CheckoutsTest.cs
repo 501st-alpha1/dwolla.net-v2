@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using Dwolla;
-using Dwolla.SerializableTypes;
+using DwollaV2;
+using DwollaV2.SerializableTypes;
 
 namespace dwolla.net.test
 {

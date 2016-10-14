@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Dwolla.SerializableTypes;
+using DwollaV2.SerializableTypes;
 
-namespace Dwolla
+namespace DwollaV2
 {
   public class Contacts : Rest
   {

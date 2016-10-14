@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
-using Dwolla.SerializableTypes;
+using DwollaV2.SerializableTypes;
 
-namespace Dwolla
+namespace DwollaV2
 {
   public class Transactions : Rest
   {

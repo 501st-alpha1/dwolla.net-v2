@@ -4,7 +4,7 @@
 // different Dwolla responses.
 using System.Collections.Generic;
 
-namespace Dwolla.SerializableTypes
+namespace DwollaV2.SerializableTypes
 {
   /// <summary>
   ///   We do not use nullable primitives here

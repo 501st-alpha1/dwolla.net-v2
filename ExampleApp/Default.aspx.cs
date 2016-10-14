@@ -6,8 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Threading.Tasks;
 
-using Dwolla;
-using Dwolla.SerializableTypes;
+using DwollaV2;
+using DwollaV2.SerializableTypes;
 
 namespace ExampleApp
 {

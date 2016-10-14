@@ -4,17 +4,17 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-using Dwolla;
-using Dwolla.SerializableTypes;
+using DwollaV2;
+using DwollaV2.SerializableTypes;
 
 namespace ExampleMVC.Controllers
 {
     public class HomeController : Controller
     {
 
-        public Dwolla.OAuth o = new OAuth();
-        public Dwolla.Accounts a = new Accounts();
-        public Dwolla.Transactions t = new Transactions();
+        public DwollaV2.OAuth o = new OAuth();
+        public DwollaV2.Accounts a = new Accounts();
+        public DwollaV2.Transactions t = new Transactions();
 
         public static OAuthResponse creds = null;
 
@@ -51,7 +51,7 @@ namespace ExampleMVC.Controllers
                     sent = t.Send(Request.Form["dwolla_dest"], Convert.ToDouble(Request.Form["dwolla_amount"]),
                                   new Dictionary<string, string> { { "destinationType", Request.Form["dwolla_id_type"] } }, creds.access_token, Convert.ToInt16(Request.Form["dwolla_pin"]));
                 }
-                catch (Dwolla.ApiException)
+                catch (DwollaV2.ApiException)
                 {
                     ViewData["api_error"] = true;
                 }

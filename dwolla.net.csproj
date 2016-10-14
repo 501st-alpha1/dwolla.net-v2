@@ -7,7 +7,7 @@
     <ProjectGuid>{515219C2-3D41-49E8-995E-2E3707B6558F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Dwolla</RootNamespace>
+    <RootNamespace>DwollaV2</RootNamespace>
     <AssemblyName>dwolla</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

@@ -6,9 +6,9 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Web.Script.Serialization;
 
-using Dwolla.SerializableTypes;
+using DwollaV2.SerializableTypes;
 
-namespace Dwolla
+namespace DwollaV2
 {
   /// <summary>
   ///   Handles POST and GET requests, as well as serialization

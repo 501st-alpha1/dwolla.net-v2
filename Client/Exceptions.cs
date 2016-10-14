@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace Dwolla
+namespace DwollaV2
 {
   /// <summary>
   ///   Custom exception class for invalid API responses.

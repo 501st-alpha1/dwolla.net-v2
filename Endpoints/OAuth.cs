@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web;
-using Dwolla.SerializableTypes;
+using DwollaV2.SerializableTypes;
 
-namespace Dwolla
+namespace DwollaV2
 {
   public class OAuth : Rest
   {

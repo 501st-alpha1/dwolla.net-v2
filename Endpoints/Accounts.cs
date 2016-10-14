@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using Dwolla.SerializableTypes;
+using DwollaV2.SerializableTypes;
 
-namespace Dwolla
+namespace DwollaV2
 {
   public class Accounts : Rest
   {
