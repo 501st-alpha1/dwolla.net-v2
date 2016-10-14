@@ -47,7 +47,7 @@ namespace DwollaV2
       };
       if (redirect != null) data["redirect_uri"] = redirect;
 
-      var response = Post ("/token", data);
+      var response = Post ("/token", data).Content.ReadAsStringAsync().Result;
 
       var oar = Jss.Deserialize<OAuthResponse>(response);
       if (oar.access_token != null) return oar;
@@ -67,7 +67,7 @@ namespace DwollaV2
         {"client_secret", C.dwolla_secret},
         {"grant_type", "refresh_token"},
         {"refresh_token", refreshToken}
-      });
+      }).Content.ReadAsStringAsync().Result;
 
       var oar = Jss.Deserialize<OAuthResponse>(response);
       if (oar.access_token != null) return oar;
@@ -85,7 +85,7 @@ namespace DwollaV2
       {
         {"oauth_token", altToken ?? C.dwolla_access_token}
       };
-      var response = Get("/catalog", data);
+      var response = Get("/catalog", data).Content.ReadAsStringAsync().Result;
 
       var cat = Jss.Deserialize<OAuthCatalog>(response);
       if (cat.Success) return cat;
