@@ -57,6 +57,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Client\SerializableTypes\ErrorResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\Settings.settings">

@@ -47,8 +47,10 @@ namespace DwollaV2
       }
       else
       {
-        // TODO: Add better error handling?
-        throw new Exception(content);
+        ErrorResponse errorResponse = Jss.Deserialize<ErrorResponse>(content);
+        string error = errorResponse.Code + ": " + errorResponse.Message;
+
+        throw new ApiException(error);
       }
     }
 
