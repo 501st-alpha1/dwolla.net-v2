@@ -16,6 +16,7 @@ namespace DwollaV2.SerializableTypes
   {
     public bool Success { get; set; }
     public string Message { get; set; }
+    public Uri Location { get; set; }
     public T Response { get; set; }
   }
 
