@@ -58,6 +58,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Client\SerializableTypes\ErrorResponse.cs" />
+    <Compile Include="Client\SerializableTypes\EmbeddedErrorResponse.cs" />
+    <Compile Include="Client\SerializableTypes\EmbeddedErrorList.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\Settings.settings">
