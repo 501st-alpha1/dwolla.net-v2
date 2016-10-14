@@ -1,4 +1,4 @@
-﻿namespace Dwolla.SerializableTypes
+﻿namespace DwollaV2.SerializableTypes
 {
   public class EmbeddedErrorResponse
   {

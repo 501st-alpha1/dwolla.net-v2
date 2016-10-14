@@ -50,7 +50,7 @@ namespace DwollaV2
         ErrorResponse errorResponse = Jss.Deserialize<ErrorResponse>(content);
         string error = errorResponse.Code + ": " + errorResponse.Message;
 
-        throw new ApiException(error);
+        throw new ApiException(error, errorResponse);
       }
     }
 
