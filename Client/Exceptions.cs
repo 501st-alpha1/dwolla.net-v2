@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.Serialization;
+using DwollaV2.SerializableTypes;
 
 namespace DwollaV2
 {
@@ -9,8 +10,21 @@ namespace DwollaV2
   [Serializable]
   public class ApiException : ApplicationException
   {
+    private ErrorResponse _response;
+
+    public ErrorResponse Response
+    {
+      get { return _response; }
+    }
+
     public ApiException() : base() { }
     public ApiException(string message) : base(message) { }
+
+    public ApiException(string message, ErrorResponse response) : base(message)
+    {
+      this._response = response;
+    }
+
     protected ApiException(SerializationInfo info, StreamingContext context) { }
   }
 
