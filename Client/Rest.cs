@@ -121,7 +121,7 @@ namespace DwollaV2
     /// <param name="endpoint">Dwolla API endpoint</param>
     /// <param name="parameters">A Dictionary with the parameters</param>
     /// <returns>JSON-encoded string with API response</returns>
-    protected string Get(string endpoint, Dictionary<string, string> parameters)
+    protected HttpResponseMessage Get(string endpoint, Dictionary<string, string> parameters)
     {
       using (var client = new HttpClient())
       {
@@ -141,7 +141,7 @@ namespace DwollaV2
 
         try
         {
-          return client.GetStringAsync(builder.Uri).Result;
+          return client.GetAsync(builder.Uri).Result;
         }
         catch (Exception wtf)
         {
@@ -220,7 +220,7 @@ namespace DwollaV2
     /// <param name="endpoint">Dwolla API endpoint</param>
     /// <param name="parameters">A Dictionary with the parameters</param>
     /// <returns>JSON-encoded string with API response</returns>
-    protected string Delete(string endpoint, Dictionary<string, string> parameters)
+    protected HttpResponseMessage Delete(string endpoint, Dictionary<string, string> parameters)
     {
       using (var client = new HttpClient())
       {
@@ -240,7 +240,7 @@ namespace DwollaV2
 
         try
         {
-          return client.GetStringAsync(builder.Uri).Result;
+          return client.GetAsync(builder.Uri).Result;
         }
         catch (Exception wtf)
         {
