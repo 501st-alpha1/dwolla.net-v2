@@ -23,7 +23,7 @@ namespace dwolla.net.test
     {
       var result = a.Full("raopmI6N9UIq87uWqhXB5v7xIgi49EH3K3qSFwtoZ/CzcBCN+l");
       Assert.IsInstanceOfType(result, typeof(UserFull));
-    }    
+    }
 
     [TestMethod]
     public void TestBalance()

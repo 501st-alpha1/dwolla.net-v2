@@ -23,7 +23,7 @@ namespace Dwolla
       };
 
       if (aParams != null) data = aParams.Union(data).ToDictionary(k => k.Key, v => v.Value);
-      return (C.dwolla_sandbox ? C.dwolla_sandbox_host : C.dwolla_production_host) 
+      return (C.dwolla_sandbox ? C.dwolla_sandbox_host : C.dwolla_production_host)
         + "payment/checkout/" + DwollaParse<CheckoutID>(PostSpecial("/offsitegateway/checkouts", data)).CheckoutId;
     }
 

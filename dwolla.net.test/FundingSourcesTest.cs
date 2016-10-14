@@ -15,11 +15,11 @@ namespace dwolla.net.test
     /// <summary>
     ///   Before running this test, please ensure that the test account
     ///   does not have any number of bank accounts added, or Add will fail.
-    /// 
-    ///   Verify is left as an exercise for the reader, mainly because 
+    ///
+    ///   Verify is left as an exercise for the reader, mainly because
     ///   you have to wait for the non-existent micro-deposits to clear.
-    /// 
-    ///   For the same reasons, withdraw and deposit have been omitted 
+    ///
+    ///   For the same reasons, withdraw and deposit have been omitted
     ///   (no account to test with).
     /// </summary>
     [TestMethod]

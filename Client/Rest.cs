@@ -28,7 +28,7 @@ namespace Dwolla
 
     /// <summary>
     ///   Fully parses result out of Dwolla envelope into easily
-    ///   usable serializable type. Verifies response 
+    ///   usable serializable type. Verifies response
     ///   and raises error if API exception encountered.
     /// </summary>
     /// <typeparam name="T">Type of serializable data</typeparam>
@@ -75,8 +75,8 @@ namespace Dwolla
 
     /// <summary>
     ///   A variation of the POST method wherein the only difference
-    ///   is that we post a Dictionary<string,object>. Used for MassPay 
-    ///   and off-site gateway checkouts. 
+    ///   is that we post a Dictionary<string,object>. Used for MassPay
+    ///   and off-site gateway checkouts.
     /// </summary>
     /// <param name="endpoint">Dwolla API endpoint</param>
     /// <param name="parameters">A Dictionary with the parameters</param>
@@ -166,8 +166,8 @@ namespace Dwolla
 
     /// <summary>
     ///   A variation of the PUT method wherein the only difference
-    ///   is that we post a Dictionary<string,object>. Used for MassPay 
-    ///   and off-site gateway checkouts. 
+    ///   is that we post a Dictionary<string,object>. Used for MassPay
+    ///   and off-site gateway checkouts.
     /// </summary>
     /// <param name="endpoint">Dwolla API endpoint</param>
     /// <param name="parameters">A Dictionary with the parameters</param>

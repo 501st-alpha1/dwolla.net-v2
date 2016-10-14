@@ -14,7 +14,7 @@ namespace dwolla.net.test
     [TestMethod]
     public void TestAll()
     {
-      var items = new List<MassPayItem>() 
+      var items = new List<MassPayItem>()
       {
         {
           new MassPayItem()

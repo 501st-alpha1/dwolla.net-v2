@@ -178,8 +178,8 @@ namespace Dwolla
 
     /// <summary>
     ///   Edit a previously made scheduled transaction. Pass in parameters
-    ///   that you wish to edit in aParams. The recurrence object cannot be 
-    ///   edited. 
+    ///   that you wish to edit in aParams. The recurrence object cannot be
+    ///   edited.
     /// </summary>
     /// <param name="aParams">Additional parameters</param>
     /// <param name="altToken">Alternate OAuth token</param>

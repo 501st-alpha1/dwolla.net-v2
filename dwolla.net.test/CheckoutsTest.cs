@@ -28,7 +28,7 @@ namespace dwolla.net.test
       var info = c.Get(url.Substring(url.LastIndexOf('/') + 1));
       Assert.IsInstanceOfType(info, typeof(Checkout));
 
-      // Verifying that this endpoint works is left as an 
+      // Verifying that this endpoint works is left as an
       // exercise for the reader, mainly because it is difficult
       // to do this in a responsive manner with Travis-CI integration.
       /*

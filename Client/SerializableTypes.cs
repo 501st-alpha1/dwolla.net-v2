@@ -1,7 +1,7 @@
 ﻿using System;
 
 // This namespace contains WCF-serializable types for
-// different Dwolla responses. 
+// different Dwolla responses.
 using System.Collections.Generic;
 
 namespace Dwolla.SerializableTypes
