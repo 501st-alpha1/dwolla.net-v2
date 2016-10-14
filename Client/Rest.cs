@@ -40,16 +40,15 @@ namespace DwollaV2
     /// </returns>
     protected T DwollaParse<T>(HttpResponseMessage response)
     {
+      string content = response.Content.ReadAsStringAsync().Result;
       if (response.IsSuccessStatusCode)
       {
-        string content = response.Content.ReadAsStringAsync().Result;
-
         return Jss.Deserialize<T>(content);
       }
       else
       {
         // TODO: Add better error handling?
-        throw new ApiException(response);
+        throw new Exception(content);
       }
     }
 
