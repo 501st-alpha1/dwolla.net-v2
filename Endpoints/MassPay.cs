@@ -28,7 +28,7 @@ namespace DwollaV2
       };
 
       if (aParams != null) data = aParams.Union(data).ToDictionary(k => k.Key, v => v.Value);
-      return DwollaParse<MassPayJob>(PostSpecial("/masspay", data));
+      return DwollaParse<MassPayJob>(PostSpecial("/masspay", data)).Response;
     }
 
     /// <summary>
@@ -45,7 +45,7 @@ namespace DwollaV2
         {"oauth_token", altToken ?? C.dwolla_access_token}
       };
 
-      return DwollaParse<MassPayJob>(Get("/masspay/" + id, data));
+      return DwollaParse<MassPayJob>(Get("/masspay/" + id, data)).Response;
     }
 
     /// <summary>
@@ -64,7 +64,7 @@ namespace DwollaV2
       };
 
       if (aParams != null) data = aParams.Union(data).ToDictionary(k => k.Key, v => v.Value);
-      return DwollaParse<List<MassPayRetrievedItem>>(Get("/masspay/" + id + "/items", data));
+      return DwollaParse<List<MassPayRetrievedItem>>(Get("/masspay/" + id + "/items", data)).Response;
     }
 
     /// <summary>
@@ -83,7 +83,7 @@ namespace DwollaV2
 
       return DwollaParse<MassPayRetrievedItem>(Get("/masspay/" + jobId
                                                    + "/items/" + itemId,
-                                                   data));
+                                                   data)).Response;
     }
 
     /// <summary>
@@ -99,7 +99,7 @@ namespace DwollaV2
         {"oauth_token", altToken ?? C.dwolla_access_token}
       };
 
-      return DwollaParse<List<MassPayJob>>(Get("/masspay", data));
+      return DwollaParse<List<MassPayJob>>(Get("/masspay", data)).Response;
     }
   }
 }

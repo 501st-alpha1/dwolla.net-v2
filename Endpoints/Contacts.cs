@@ -20,7 +20,7 @@ namespace DwollaV2
       };
 
       if (aParams != null) data = aParams.Union(data).ToDictionary(k => k.Key, v => v.Value);
-      return DwollaParse<List<Contact>>(Get("/contacts", data));
+      return DwollaParse<List<Contact>>(Get("/contacts", data)).Response;
     }
 
     /// <summary>
@@ -41,7 +41,7 @@ namespace DwollaV2
       };
 
       if (aParams != null) data = aParams.Union(data).ToDictionary(k => k.Key, v => v.Value);
-      return DwollaParse<List<UserNearby>>(Get("/contacts/nearby", data));
+      return DwollaParse<List<UserNearby>>(Get("/contacts/nearby", data)).Response;
     }
   }
 }

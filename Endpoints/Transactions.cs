@@ -28,7 +28,7 @@ namespace DwollaV2
       };
 
       if (aParams != null) data = aParams.Union(data).ToDictionary(k => k.Key, v => v.Value);
-      return DwollaParse<int?>(Post("/transactions/send", data));
+      return DwollaParse<int?>(Post("/transactions/send", data)).Response;
     }
 
     /// <summary>
@@ -48,7 +48,8 @@ namespace DwollaV2
       };
 
       if (aParams != null) data = aParams.Union(data).ToDictionary(k => k.Key, v => v.Value);
-      return DwollaParse<List<Transaction>>(Get("/transactions", data));
+      return DwollaParse<List<Transaction>>(Get("/transactions", data))
+        .Response;
     }
 
     /// <summary>
@@ -68,7 +69,7 @@ namespace DwollaV2
       };
 
       return DwollaParse<Transaction>(Get("/transactions/" + transactionId,
-                                          data));
+                                          data)).Response;
     }
 
     /// <summary>
@@ -95,7 +96,7 @@ namespace DwollaV2
       };
 
       if (aParams != null) data = aParams.Union(data).ToDictionary(k => k.Key, v => v.Value);
-      return DwollaParse<Refund>(Post("/transactions/refund", data));
+      return DwollaParse<Refund>(Post("/transactions/refund", data)).Response;
     }
 
     /// <summary>
@@ -113,7 +114,8 @@ namespace DwollaV2
       };
 
       if (aParams != null) data = aParams.Union(data).ToDictionary(k => k.Key, v => v.Value);
-      return DwollaParse<TransactionStats>(Get("/transactions/stats", data));
+      return DwollaParse<TransactionStats>(Get("/transactions/stats", data))
+        .Response;
     }
 
     /// <summary>
@@ -144,7 +146,7 @@ namespace DwollaV2
       if (recurrence != null) data.Add("recurrence", recurrence);
 
       if (aParams != null) data = aParams.Union(data).ToDictionary(k => k.Key, v => v.Value);
-      return DwollaParse<ScheduledTransaction>(PostSpecial("/transactions/scheduled", data));
+      return DwollaParse<ScheduledTransaction>(PostSpecial("/transactions/scheduled", data)).Response;
     }
 
     /// <summary>
@@ -161,7 +163,8 @@ namespace DwollaV2
       };
 
       if (aParams != null) data = aParams.Union(data).ToDictionary(k => k.Key, v => v.Value);
-      return DwollaParse<ScheduledTransactions>(Get("/transactions/scheduled", data));
+      return DwollaParse<ScheduledTransactions>(Get("/transactions/scheduled",
+                                                    data)).Response;
     }
 
     /// <summary>
@@ -175,7 +178,7 @@ namespace DwollaV2
       return DwollaParse<ScheduledTransaction>(Get("/transactions/scheduled/" + id, new Dictionary<string, string>
         {
           {"oauth_token", altToken ?? C.dwolla_access_token}
-        }));
+        })).Response;
     }
 
     /// <summary>
@@ -196,7 +199,7 @@ namespace DwollaV2
       };
 
       if (aParams != null) data = aParams.Union(data).ToDictionary(k => k.Key, v => v.Value);
-      return DwollaParse<ScheduledTransaction>(Put("/transactions/scheduled/" + id, data));
+      return DwollaParse<ScheduledTransaction>(Put("/transactions/scheduled/" + id, data)).Response;
     }
 
     /// <summary>
@@ -214,7 +217,8 @@ namespace DwollaV2
         {"pin", (altPin != null) ? altPin.ToString() : C.dwolla_pin.ToString()}
       };
 
-      return DwollaParse<string>(Delete("/transactions/scheduled/" + id, data));
+      return DwollaParse<string>(Delete("/transactions/scheduled/" + id, data))
+        .Response;
     }
 
     /// <summary>
@@ -231,7 +235,8 @@ namespace DwollaV2
         {"pin", (altPin != null) ? altPin.ToString() : C.dwolla_pin.ToString()}
       };
 
-      return DwollaParse<List<string>>(Delete("/transactions/scheduled", data));
+      return DwollaParse<List<string>>(Delete("/transactions/scheduled", data))
+        .Response;
     }
   }
 }

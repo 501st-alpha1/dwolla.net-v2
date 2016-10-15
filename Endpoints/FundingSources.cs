@@ -20,7 +20,7 @@ namespace DwollaV2
       };
 
       return DwollaParse<FundingSource>(Get("/fundingsources/" + fundingId,
-                                            data));
+                                            data)).Response;
     }
 
     /// <summary>
@@ -38,7 +38,8 @@ namespace DwollaV2
       };
 
       if (aParams != null) data = aParams.Union(data).ToDictionary(k => k.Key, v => v.Value);
-      return DwollaParse<List<FundingSource>>(Get("/fundingsources", data));
+      return DwollaParse<List<FundingSource>>(Get("/fundingsources", data))
+        .Response;
     }
 
     /// <summary>
@@ -62,7 +63,7 @@ namespace DwollaV2
         {"name", name}
       };
 
-      return DwollaParse<FundingSource>(Post("/fundingsources", data));
+      return DwollaParse<FundingSource>(Post("/fundingsources", data)).Response;
     }
 
     /// <summary>
@@ -86,7 +87,7 @@ namespace DwollaV2
       var fS = DwollaParse<FundingSource>(Post("/fundingsources/" + fundingId
                                                + "/verify", data));
 
-      return fS.Verified;
+      return fS.Response.Verified;
     }
 
     /// <summary>
@@ -109,7 +110,7 @@ namespace DwollaV2
       };
 
       return DwollaParse<Transaction>(Post("/fundingsources/" + fundingId
-                                           + "/withdraw", data));
+                                           + "/withdraw", data)).Response;
     }
 
     /// <summary>
@@ -132,7 +133,7 @@ namespace DwollaV2
       };
 
       return DwollaParse<Transaction>(Post("/fundingsources/" + fundingId
-                                           + "/deposit", data));
+                                           + "/deposit", data)).Response;
     }
   }
 }

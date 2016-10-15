@@ -18,7 +18,7 @@ namespace DwollaV2
         {"client_secret", C.dwolla_secret},
       };
 
-      return DwollaParse<UserBasic>(Get("/users/" + accountId, data));
+      return DwollaParse<UserBasic>(Get("/users/" + accountId, data)).Response;
     }
 
     /// <summary>
@@ -34,7 +34,7 @@ namespace DwollaV2
         {"oauth_token", altToken ?? C.dwolla_access_token}
       };
 
-      return DwollaParse<UserFull>(Get("/users", data));
+      return DwollaParse<UserFull>(Get("/users", data)).Response;
     }
 
     /// <summary>
@@ -50,7 +50,7 @@ namespace DwollaV2
         {"oauth_token", altToken ?? C.dwolla_access_token}
       };
 
-      return DwollaParse<double>(Get("/balance", data));
+      return DwollaParse<double>(Get("/balance", data)).Response;
     }
 
     /// <summary>
@@ -69,7 +69,7 @@ namespace DwollaV2
         {"longitude", lon.ToString()}
       };
 
-      return DwollaParse<List<UserNearby>>(Get("/users/nearby", data));
+      return DwollaParse<List<UserNearby>>(Get("/users/nearby", data)).Response;
     }
 
     /// <summary>
@@ -86,7 +86,7 @@ namespace DwollaV2
       };
 
       return DwollaParse<AutoWithdrawalStatus>(Get("/accounts/features/auto_withdrawl",
-        data));
+        data)).Response;
     }
 
     /// <summary>
@@ -108,7 +108,7 @@ namespace DwollaV2
                                        data));
 
       // I figure this will be more useful than the string
-      return r == "Enabled";
+      return r.Response == "Enabled";
     }
   }
 }
