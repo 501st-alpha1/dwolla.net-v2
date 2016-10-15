@@ -26,7 +26,7 @@ namespace DwollaV2
       };
 
       if (aParams != null) data = aParams.Union(data).ToDictionary(k => k.Key, v => v.Value);
-      return DwollaParse<int>(Post("/requests", data));
+      return DwollaParse<int>(Post("/requests", data)).Response;
     }
 
     /// <summary>
@@ -44,7 +44,7 @@ namespace DwollaV2
       };
 
       if (aParams != null) data = aParams.Union(data).ToDictionary(k => k.Key, v => v.Value);
-      return DwollaParse<List<Request>>(Get("/requests", data));
+      return DwollaParse<List<Request>>(Get("/requests", data)).Response;
     }
 
     /// <summary>
@@ -60,7 +60,7 @@ namespace DwollaV2
         {"oauth_token", altToken ?? C.dwolla_access_token}
       };
 
-      return DwollaParse<Request>(Get("/requests/" + requestId, data));
+      return DwollaParse<Request>(Get("/requests/" + requestId, data)).Response;
     }
 
     /// <summary>
@@ -77,7 +77,7 @@ namespace DwollaV2
       };
 
       return DwollaParse<string>(Post("/requests/" + requestId + "/cancel",
-                                      data));
+                                      data)).Response;
     }
 
     /// <summary>
@@ -101,7 +101,7 @@ namespace DwollaV2
 
       if (aParams != null) data = aParams.Union(data).ToDictionary(k => k.Key, v => v.Value);
       return DwollaParse<RequestFulfilled>(Post("/requests/" + requestId
-                                                + "/fulfill", data));
+                                                + "/fulfill", data)).Response;
     }
   }
 }

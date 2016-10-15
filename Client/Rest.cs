@@ -38,12 +38,18 @@ namespace DwollaV2
     ///   Can either be a single object or a serializable
     ///   type as a part of a collection
     /// </returns>
-    protected T DwollaParse<T>(HttpResponseMessage response)
+    protected DwollaResponse<T> DwollaParse<T>(HttpResponseMessage response)
     {
       string content = response.Content.ReadAsStringAsync().Result;
+
       if (response.IsSuccessStatusCode)
       {
-        return Jss.Deserialize<T>(content);
+        DwollaResponse<T> result = new DwollaResponse<T>();
+        result.Success = response.IsSuccessStatusCode;
+        result.Location = response.Headers.Location;
+        result.Response = Jss.Deserialize<T>(content);
+
+        return result;
       }
       else
       {

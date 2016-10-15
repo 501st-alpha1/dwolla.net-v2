@@ -24,7 +24,7 @@ namespace DwollaV2
 
       if (aParams != null) data = aParams.Union(data).ToDictionary(k => k.Key, v => v.Value);
       return (C.dwolla_sandbox ? C.dwolla_sandbox_host : C.dwolla_production_host)
-        + "payment/checkout/" + DwollaParse<CheckoutID>(PostSpecial("/offsitegateway/checkouts", data)).CheckoutId;
+        + "payment/checkout/" + DwollaParse<CheckoutID>(PostSpecial("/offsitegateway/checkouts", data)).Response.CheckoutId;
     }
 
     /// <summary>
@@ -41,7 +41,7 @@ namespace DwollaV2
       };
 
       return DwollaParse<Checkout>(Get("/offsitegateway/checkouts/"
-                                       + checkoutId, data));
+                                       + checkoutId, data)).Response;
     }
 
     /// <summary>
@@ -59,7 +59,7 @@ namespace DwollaV2
 
       return DwollaParse<CheckoutComplete>(Post("/offsitegateway/checkouts/"
                                                 + checkoutId + "/complete",
-                                                data));
+                                                data)).Response;
     }
   }
 }
