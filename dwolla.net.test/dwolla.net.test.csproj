@@ -62,6 +62,7 @@
     <Compile Include="MassPayTest.cs" />
     <Compile Include="FundingSourcesTest.cs" />
     <Compile Include="OAuthTest.cs" />
+    <Compile Include="CustomersTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\dwolla.net.csproj">
